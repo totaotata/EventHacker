@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Eventbrite</title>
+    </head>
+    <body class="body">
+
+      <div class="jumbotron">
+        <hr>
+    <h1> Welcome to Eventbrite</h1>
+    <h2 class="display-3"><%= @params %></h2>
+    <hr>
+    </div>
+        <div class="card-columns">
+          <% Event.find_each do |event| %>
+            <div class="card border-dark mb-3" style="max-width: 18rem;">
+            <div class="card-body text-dark"><h5 class="card-title"><%= event.title %></h5></div>
+            <div class="card-footer bg-transparent border-dark"><a href="/event/<%= event.id %>">Voir l'évènement</a></div>
+            </div>
+          <% end %>
+        </div>
+  </body>
+</html>

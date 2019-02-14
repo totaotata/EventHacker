@@ -1,0 +1,38 @@
+<html>
+  <body>
+    <center><h1>Editer mon profil</h1></center>
+    <div class="container col-md-8 order-md-1">
+    <%= form_for @user do |f| %>
+    <div class="form-group">
+        <label>Prénom</label>
+        <%= f.text_field :first_name, class: "form-control", placeholder: "Jack" %>
+        <br />
+    </div>
+    <div class="form-group">
+        <label>Nom</label>
+        <%= f.text_field :last_name, class: "form-control", placeholder: "Daniel" %>
+        <br />
+      </div>
+      <div class="form-group">
+        <label>Description</label>
+        <%= f.text_area :description, class: "form-control", placeholder: "Je raconte ma life..." %>
+        <br />
+      </div>
+        <center>
+        <button type="submit" class="btn btn-primary">Modifier mon profil</button>
+        </center>
+
+    <% end %>
+    <br />
+    <% if @user.errors.any? %>
+  <p>Nous n'avons pas réussi à créer le potin pour la (ou les) raison(s) suivante(s) :</p>
+  <ul>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+  <% end %>
+  </div>
+
+  </body>
+</html>

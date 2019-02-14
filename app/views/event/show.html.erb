@@ -1,0 +1,18 @@
+<div class="jumbotron">
+  <h1 class="display-4">Voici l'event <%= @event.title %></h1>
+  <p class="lead"> <%= @event.description %> </p>
+  <hr class="my-4">
+  <p>Créateur : <%= @event.user.try(:email)%></p>
+  <p>Lieu : <%= @event.location %></p>
+  <p>Date : <%= @event.start_date %></p>
+  <p>Prix : <%= @event.price %></p>
+
+  <% if is_user_the_event_admin? %>
+   <p class="h5"> <%= current_user.first_name %> tu es l'admistrateur de l'évènement </p>
+     <%= link_to "Editer mon évenement", edit_event_path(@event.id) , class:"btn btn-primary" %>
+     <%= link_to "Voir les invités", event_attendances_path(@event.id) , class:"btn btn-primary" %>
+
+  <% else %>
+  <%= link_to "Participer à l'évenement", new_event_attendance_path(@event.id) , class:"btn btn-primary" %>
+  <% end %>
+</div>

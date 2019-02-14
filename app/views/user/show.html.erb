@@ -1,0 +1,9 @@
+
+
+<div class="jumbotron">
+  <h1 class="display-4">Mon profil :<br /><%= @user.first_name %> <%= @user.last_name %></h1>
+  <p class="lead"> <h4>Description de l'auteur:</h4><%= @user.description %></p>
+  <hr class="my-4">
+  <%= link_to "Modifier mon profil", edit_user_path, class:"btn btn-primary" %>
+
+</div>
